@@ -1,5 +1,5 @@
 import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
-import {HttpTokenService} from './zhang/service/HttpTokenService';
+import {HttpTokenService} from './zhang/service/http-token-service';
 
 @Component({
   selector: 'app-root',

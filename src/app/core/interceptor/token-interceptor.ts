@@ -1,5 +1,4 @@
 import {
-  HttpEvent,
   HttpHandler,
   HttpHeaderResponse,
   HttpInterceptor,
@@ -21,5 +20,4 @@ export class TokenInterceptor implements HttpInterceptor {
     return undefined;
   }
 
-}
-// tslint:disable-next-line:typedef
+ }

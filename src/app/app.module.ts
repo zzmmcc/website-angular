@@ -16,7 +16,7 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import {NzBreadCrumbModule} from 'ng-zorro-antd/breadcrumb';
 import {PagesModule} from './pages/pages.module';
 import {DelonAuthModule, SimpleInterceptor, TokenService} from '@delon/auth';
-import {TokenInterceptor} from './core/interceptor/TokenInterceptor';
+import {TokenInterceptor} from './core/interceptor/token-interceptor';
 
 registerLocaleData(en);
 
