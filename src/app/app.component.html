@@ -1,5 +1,5 @@
 <nz-layout>
-  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="welcome">
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null" >
     <div class="logo"></div>
     <ul nz-menu nzTheme="light" nzMode="inline">
       <li nz-menu-item>
@@ -9,7 +9,7 @@
       <li nz-submenu nzTitle="分类" nzIcon="menu">
         <ul>
           <li nz-menu-item>默认分类</li>
-          <li nz-menu-item>类A</li>
+          <li nz-menu-item (click)="test()">类A</li>
           <li nz-menu-item>类B</li>
         </ul>
       </li>
@@ -25,18 +25,10 @@
     <nz-header>
       <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="isCollapsed = !isCollapsed"></i>
     </nz-header>
-    <nz-content>
-      <nz-breadcrumb>
-        <nz-breadcrumb-item>User</nz-breadcrumb-item>
-        <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
-      </nz-breadcrumb>
-      <div class="inner-content">
-        Bill is a cat.
-      </div>
+    <nz-content style="height: 1000px">
+        <app-welcome></app-welcome>
     </nz-content>
     <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
   </nz-layout>
-  <ng-template #welcome>
-    <app-welcome></app-welcome>
-  </ng-template>
+
 </nz-layout>

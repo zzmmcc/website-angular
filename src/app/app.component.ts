@@ -1,4 +1,5 @@
 import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import {HttpTokenService} from './zhang/service/HttpTokenService';
 
 @Component({
   selector: 'app-root',
@@ -6,15 +7,15 @@ import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  constructor() {
+  constructor(private httpTokenService: HttpTokenService) {
   }
   ngOnInit(): void {
 
   }
   isCollapsed = false;
 
-  @ViewChild("welcome", { static: true})
-  welcome: TemplateRef<void>;
-
+  test(){
+    this.httpTokenService.login("a", "b");
+  }
 }
 

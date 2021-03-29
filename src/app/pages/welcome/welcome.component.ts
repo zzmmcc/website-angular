@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './welcome.component.html',
 })
 export class WelcomeComponent implements OnInit {
+  show: boolean = false;
 
   constructor() { }
 
