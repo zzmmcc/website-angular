@@ -1,0 +1,9 @@
+<nz-modal [(nzVisible)]="isVisible" nzTitle="登录" (nzOnCancel)="cancel()">
+  <div *nzModalContent>
+
+  </div>
+  <div *nzModalFooter>
+    <button nz-button nzType="default" (click)="cancel()">取消</button>
+    <button nz-button nzType="primary" (click)="test()" [nzLoading]="isConfirmLoading">登录</button>
+  </div>
+</nz-modal>
