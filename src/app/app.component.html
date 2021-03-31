@@ -4,13 +4,21 @@
     <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
       <div class="logo"></div>
       <ul nz-menu nzTheme="light" nzMode="inline">
+        <li nz-menu-item *ngIf="token">
+          <i nz-icon nzType="home"></i>
+          <span><a >头像</a></span>
+        </li>
+        <li nz-menu-item *ngIf="!token">
+          <i nz-icon nzType="home"></i>
+          <span><a (click)="showLogin()">登录</a></span>
+        </li>
         <li nz-menu-item>
           <i nz-icon nzType="home"></i>
           <span><a routerLink="welcome">首页</a></span>
         </li>
         <li nz-submenu nzTitle="分类" nzIcon="menu">
           <ul>
-            <li nz-menu-item (click)="showLogin()">默认分类</li>
+            <li nz-menu-item >默认分类</li>
             <li nz-menu-item>类A</li>
             <li nz-menu-item>类B</li>
           </ul>
@@ -34,5 +42,5 @@
       <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
     </nz-layout>
   </nz-layout>
-  <app-login #loginComponent></app-login>
+  <app-login #loginComponent (emitter)="flush()"></app-login>
 </div>

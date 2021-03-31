@@ -3,7 +3,7 @@ import {Component, NgModule} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
@@ -17,6 +17,7 @@ import {DelonAuthModule, SimpleInterceptor, TokenService} from '@delon/auth';
 import {TokenInterceptor} from './core/interceptor/token-interceptor';
 import {NzMessageService} from 'ng-zorro-antd/message';
 import {ComponentsModule} from './zhang/component/components.module';
+import {NzFormModule} from 'ng-zorro-antd/form';
 
 registerLocaleData(en);
 
@@ -34,9 +35,14 @@ registerLocaleData(en);
     IconsProviderModule,
     NzLayoutModule,
     NzMenuModule,
+    NzFormModule,
     NzBreadCrumbModule,
     PagesModule,
-    ComponentsModule
+    ComponentsModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [
     // { provide: NZ_I18N, useValue: en_US },

@@ -1,7 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {HttpTokenService} from '../../service/http-token-service';
-import { NzFormModule } from 'ng-zorro-antd/form';
-
+import {MsgService} from '../../service/common/msg-service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,16 +9,29 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 export class LoginComponent implements OnInit {
   isVisible: boolean = false;
   isConfirmLoading: boolean = false;
+  username: string ;
+  password: string ;
 
-  constructor(private httpTokenService: HttpTokenService) { }
+  @Output()
+  emitter: EventEmitter<string> = new EventEmitter<string>();
+
+  constructor(private httpTokenService: HttpTokenService, private msg: MsgService) { }
   ngOnInit(): void {
+    this.password = ""
+    this.username = ""
   }
 
   cancel() {
     this.isVisible = false;
   }
-  test(){
-    this.httpTokenService.login("a", "b").subscribe(data => console.log(data));
+  login(){
+    this.httpTokenService.login(this.username, this.password).subscribe(data => {
+      if (data && data.token){
+        this.msg.success("登录成功!");
+        this.emitter.emit();
+        this.cancel();
+      }
+    });
   }
   validateForm(){
 

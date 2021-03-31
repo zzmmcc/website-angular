@@ -1,9 +1,10 @@
 <nz-modal [(nzVisible)]="isVisible" nzTitle="登录" (nzOnCancel)="cancel()">
   <div *nzModalContent>
-
+        <input type="text" nz-input  placeholder="Username" [(ngModel)]="username"  />
+        <input type="password" nz-input  placeholder="Password" [(ngModel)]="password" />
   </div>
   <div *nzModalFooter>
     <button nz-button nzType="default" (click)="cancel()">取消</button>
-    <button nz-button nzType="primary" (click)="test()" [nzLoading]="isConfirmLoading">登录</button>
+    <button nz-button nzType="primary" (click)="login()" [nzLoading]="isConfirmLoading">登录</button>
   </div>
 </nz-modal>

@@ -14,7 +14,7 @@ import {environment} from '../../../environments/environment';
 import {NzMessageService} from 'ng-zorro-antd/message';
 import {Router} from '@angular/router';
 import {_HttpClient} from '@delon/theme';
-import {CacheService} from '../../zhang/service/cache-service';
+import {CacheService} from '@delon/cache';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
