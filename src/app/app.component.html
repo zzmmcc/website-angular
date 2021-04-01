@@ -1,43 +1,43 @@
-<div>
-
-  <nz-layout>
-    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
-      <div class="logo"></div>
-      <ul nz-menu nzTheme="light" nzMode="inline">
-        <li nz-menu-item *ngIf="token">
-          <i nz-icon nzType="home"></i>
-          <span><a >头像</a></span>
+<nz-layout>
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+    <div class="logo"></div>
+    <ul nz-menu nzTheme="light" nzMode="inline">
+      <li nz-menu-item *ngIf="token">
+        <i nz-icon nzType="home"></i>
+        <span><a >头像</a></span>
+      </li>
+      <li nz-menu-item *ngIf="token">
+        <i nz-icon nzType="home"></i>
+        <span><a (click)="logout()">退出登录</a></span>
+      </li>
+      <li nz-menu-item *ngIf="!token">
+        <i nz-icon nzType="home"></i>
+        <span><a (click)="showLogin()">登录</a></span>
+      </li>
+      <div *ngFor="let menu of menus">
+        <li nz-submenu [nzTitle]="menu.name" nzIcon="menu" *ngIf="menu.children.length !== 0 else nonChildren">
+          <ul *ngFor="let child of menu.children">
+            <li nz-menu-item >{{child.name}}</li>
+          </ul>
         </li>
-        <li nz-menu-item *ngIf="!token">
-          <i nz-icon nzType="home"></i>
-          <span><a (click)="showLogin()">登录</a></span>
-        </li>
-        <div *ngFor="let menu of menus">
-          <li nz-submenu [nzTitle]="menu.name" nzIcon="menu" *ngIf="menu.children.length !== 0 else nonChildren">
-            <ul *ngFor="let child of menu.children">
-              <li nz-menu-item >{{child.name}}</li>
-            </ul>
+        <ng-template #nonChildren>
+          <li nz-menu-item>
+            <i nz-icon nzType="menu"></i>
+            <span><a >{{menu.name}}</a></span>
           </li>
-          <ng-template #nonChildren>
-            <li nz-menu-item>
-              <i nz-icon nzType="menu"></i>
-              <span><a>{{menu.name}}</a></span>
-            </li>
-          </ng-template>
-
-        </div>
-      </ul>
-    </nz-sider>
-    <nz-layout>
-      <nz-header>
-        <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
-           (click)="isCollapsed = !isCollapsed"></i>
-      </nz-header>
-      <nz-content style="height: 1000px">
-        <app-welcome></app-welcome>
-      </nz-content>
-      <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
-    </nz-layout>
+        </ng-template>
+      </div>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+         (click)="isCollapsed = !isCollapsed"></i>
+    </nz-header>
+    <nz-content style="height: 1000px">
+      <app-article-list *ngIf="token"></app-article-list>
+    </nz-content>
+    <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
   </nz-layout>
-  <app-login #loginComponent (emitter)="flush()"></app-login>
-</div>
+</nz-layout>
+<app-login #loginComponent (emitter)="flush()"></app-login>

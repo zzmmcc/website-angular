@@ -1,5 +1,5 @@
 
-export class TokenDTO{
+export interface TokenDTO{
   /**
    * userName
    */

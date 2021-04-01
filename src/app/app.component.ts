@@ -41,5 +41,9 @@ export class AppComponent implements OnInit{
       this.menus = data
     });
   }
+  logout(){
+    this.cache.remove("__token");
+    this.token = null;
+  }
 }
 

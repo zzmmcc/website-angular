@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import {Component, NgModule} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,12 +11,12 @@ import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import {NzBreadCrumbModule} from 'ng-zorro-antd/breadcrumb';
-import {PagesModule} from './pages/pages.module';
 import {DelonAuthModule, SimpleInterceptor, TokenService} from '@delon/auth';
 import {TokenInterceptor} from './core/interceptor/token-interceptor';
 import {NzMessageService} from 'ng-zorro-antd/message';
 import {ComponentsModule} from './zhang/component/components.module';
 import {NzFormModule} from 'ng-zorro-antd/form';
+import {AppComponent} from './app.component';
 
 registerLocaleData(en);
 
@@ -37,7 +36,6 @@ registerLocaleData(en);
     NzMenuModule,
     NzFormModule,
     NzBreadCrumbModule,
-    PagesModule,
     ComponentsModule,
     FormsModule,
     HttpClientModule,
