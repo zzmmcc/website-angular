@@ -15,6 +15,7 @@ import {NzMessageService} from 'ng-zorro-antd/message';
 import {Router} from '@angular/router';
 import {_HttpClient} from '@delon/theme';
 import {CacheService} from '@delon/cache';
+import {TokenDTO} from '../../zhang/model/token-dto';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
@@ -93,7 +94,8 @@ export class TokenInterceptor implements HttpInterceptor {
     if (!url.startsWith('https://') && !url.startsWith('http://')) {
       url = environment.SERVER_URL + url;
     }
-    const token = this.cacheService.get('__token', { mode: 'none' });
+    let token;
+    this.cacheService.tryGet('__token', new Observable<TokenDTO>()).subscribe(data => token = data.token);
     let newReq = null;
     if (token){
       newReq = req.clone({

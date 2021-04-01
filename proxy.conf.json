@@ -1,0 +1,9 @@
+{
+  "/rootUrl-name/": {
+    "target": "http://42.192.197.101:9393",
+    "secure": false,
+    "pathRewrite":{
+      "/rootUrl-name/":"/"
+    }
+  }
+}

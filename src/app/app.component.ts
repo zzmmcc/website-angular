@@ -1,7 +1,10 @@
-import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {LoginComponent} from './zhang/component/login/login.component';
 import {CacheService} from '@delon/cache';
 import {TokenDTO} from './zhang/model/token-dto';
+import {Observable} from 'rxjs';
+import {MenuService} from './zhang/service/menu.service';
+import {MenuDTO} from './zhang/model/menu-dto';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +13,13 @@ import {TokenDTO} from './zhang/model/token-dto';
 })
 export class AppComponent implements OnInit{
   token: TokenDTO;
-  constructor(private cache: CacheService) {
+  menus: Array<MenuDTO>;
+  constructor(private cache: CacheService, private menuService: MenuService) {
 
   }
   ngOnInit(): void {
-    //TODO: 重写CacheService
-    this.cache.get<TokenDTO>("__token").subscribe(data => this.token = data);
+    this.flush();
+    this.menus = new Array<MenuDTO>();
   }
   isCollapsed = false;
 
@@ -25,9 +29,17 @@ export class AppComponent implements OnInit{
   showLogin(){
     this.loginComponent.isVisible = true;
   }
+
   flush(){
-    debugger
-    this.cache.get<TokenDTO>("__token").subscribe(data => this.token = data);
+    this.cache.tryGet<TokenDTO>("__token", new Observable<TokenDTO>()).subscribe(data => this.token = data);
+    if (this.token){
+      this.findAll();
+    }
+  }
+  findAll(){
+    this.menuService.findAll().subscribe(data => {
+      this.menus = data
+    });
   }
 }
 

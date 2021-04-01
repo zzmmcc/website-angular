@@ -2,8 +2,8 @@
   "name": "website",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
+    "ng": "ng --proxy-config proxy.conf.json --host 42.192.197.101:9393",
+    "start": "ng serve --proxy-config proxy.conf.json ",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

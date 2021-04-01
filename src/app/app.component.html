@@ -12,23 +12,20 @@
           <i nz-icon nzType="home"></i>
           <span><a (click)="showLogin()">登录</a></span>
         </li>
-        <li nz-menu-item>
-          <i nz-icon nzType="home"></i>
-          <span><a routerLink="welcome">首页</a></span>
-        </li>
-        <li nz-submenu nzTitle="分类" nzIcon="menu">
-          <ul>
-            <li nz-menu-item >默认分类</li>
-            <li nz-menu-item>类A</li>
-            <li nz-menu-item>类B</li>
-          </ul>
-        </li>
-        <li nz-submenu nzTitle="Team" nzIcon="team">
-          <ul>
-            <li nz-menu-item>Team 1</li>
-            <li nz-menu-item>Team 2</li>
-          </ul>
-        </li>
+        <div *ngFor="let menu of menus">
+          <li nz-submenu [nzTitle]="menu.name" nzIcon="menu" *ngIf="menu.children.length !== 0 else nonChildren">
+            <ul *ngFor="let child of menu.children">
+              <li nz-menu-item >{{child.name}}</li>
+            </ul>
+          </li>
+          <ng-template #nonChildren>
+            <li nz-menu-item>
+              <i nz-icon nzType="menu"></i>
+              <span><a>{{menu.name}}</a></span>
+            </li>
+          </ng-template>
+
+        </div>
       </ul>
     </nz-sider>
     <nz-layout>
