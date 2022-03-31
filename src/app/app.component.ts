@@ -44,6 +44,7 @@ export class AppComponent implements OnInit{
   logout(){
     this.cache.remove("__token");
     this.token = null;
+    this.menus = [];
   }
 }
 

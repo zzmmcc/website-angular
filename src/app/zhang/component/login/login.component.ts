@@ -35,8 +35,8 @@ export class LoginComponent implements OnInit {
       if (data && data.token) {
         this.cache.set("__token", data, {expire: 60*10});
         this.msg.success('登录成功!');
-        this.emitter.emit();
         this.cancel();
+        this.emitter.emit();
       }
     });
   }

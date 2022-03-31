@@ -11,24 +11,26 @@ import {NzMenuModule} from 'ng-zorro-antd/menu';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {ArticleListComponent} from './article/article-list.component';
+import {ShowdownModule} from 'ngx-showdown';
 
 
 const COMPONENTS = [LoginComponent, ArticleListComponent];
 
 @NgModule({
-  imports: [
-    NzModalModule,
-    NzButtonModule,
-    FormsModule,
-    NzFormModule,
-    ReactiveFormsModule,
-    NzSelectModule,
-    NzLayoutModule,
-    NzBreadCrumbModule,
-    NzMenuModule,
-    CommonModule,
-    RouterModule,
-  ],
+    imports: [
+        NzModalModule,
+        NzButtonModule,
+        FormsModule,
+        NzFormModule,
+        ReactiveFormsModule,
+        NzSelectModule,
+        NzLayoutModule,
+        NzBreadCrumbModule,
+        NzMenuModule,
+        CommonModule,
+        RouterModule,
+        ShowdownModule,
+    ],
   declarations: [...COMPONENTS],
   exports: [...COMPONENTS]
 })

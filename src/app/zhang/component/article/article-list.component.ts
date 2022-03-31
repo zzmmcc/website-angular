@@ -12,9 +12,14 @@ export class ArticleListComponent implements OnInit{
   constructor(private articleService: ArticleService) {
   }
 
+  /**
+   * 文本内容
+   * @private
+   */
+  content: string;
+
   ngOnInit(): void {
     this.articleService.findAll().subscribe(data => this.list = data);
-    debugger
   }
 
 }

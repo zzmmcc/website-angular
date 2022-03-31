@@ -17,6 +17,7 @@ import {NzMessageService} from 'ng-zorro-antd/message';
 import {ComponentsModule} from './zhang/component/components.module';
 import {NzFormModule} from 'ng-zorro-antd/form';
 import {AppComponent} from './app.component';
+import {ShowdownModule} from 'ngx-showdown';
 
 registerLocaleData(en);
 
@@ -40,7 +41,8 @@ registerLocaleData(en);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ShowdownModule
   ],
   providers: [
     // { provide: NZ_I18N, useValue: en_US },
