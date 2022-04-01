@@ -1,4 +1,9 @@
-<div>
-  <input type="text" [(ngModel)]="content">
-  <showdown [value]="content"></showdown>
-</div>
+<nz-table>
+  <nz-card nzHoverable style="width:90%" [nzCover]="coverTemplate" *ngFor="let article of list" (click)="detail(article.id)">
+    <nz-card-meta [nzTitle]="article.title" [nzDescription]="article.description"></nz-card-meta>
+  </nz-card>
+  <ng-template #coverTemplate>
+    <img alt="example" height="800px" asc="./assets/images/head-img1.jpg" />
+  </ng-template>
+</nz-table>
+

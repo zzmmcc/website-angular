@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ArticleService} from '../../service/article-service';
-import {ArticleDTO} from '../../model/article-dto';
+import {ArticleDTO} from '../../model/article/article-dto';
 
 @Component({
   selector: 'app-article-list',
@@ -19,7 +19,15 @@ export class ArticleListComponent implements OnInit{
   content: string;
 
   ngOnInit(): void {
+    this.findAll();
+  }
+
+  findAll(){
     this.articleService.findAll().subscribe(data => this.list = data);
+  }
+
+  detail(id: string){
+
   }
 
 }

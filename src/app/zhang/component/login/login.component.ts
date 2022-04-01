@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.httpTokenService.login(this.username, this.password).subscribe(data => {
       if (data && data.token) {
-        this.cache.set("__token", data, {expire: 60*10});
+        this.cache.set("__token", data, {expire: 60 * 10 * 5});
         this.msg.success('登录成功!');
         this.cancel();
         this.emitter.emit();

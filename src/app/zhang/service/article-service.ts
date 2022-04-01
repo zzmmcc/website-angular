@@ -1,7 +1,7 @@
 import {_HttpClient} from '@delon/theme';
 import {Observable} from 'rxjs';
-import {MenuDTO} from '../model/menu-dto';
 import {Injectable} from '@angular/core';
+import {ArticleDTO} from '../model/article/article-dto';
 
 @Injectable({providedIn: 'root'})
 export class ArticleService {
@@ -10,7 +10,7 @@ export class ArticleService {
   constructor(private http: _HttpClient) {
   }
 
-  findAll(): Observable<Array<MenuDTO>> {
+  findAll(): Observable<Array<ArticleDTO>> {
     return this.http.get(`${ArticleService.URL}/all`, {});
   }
 }

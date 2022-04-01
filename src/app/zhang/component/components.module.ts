@@ -12,25 +12,30 @@ import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {ArticleListComponent} from './article/article-list.component';
 import {ShowdownModule} from 'ngx-showdown';
+import {NzCardModule} from 'ng-zorro-antd/card';
+import {ArticleDetailComponent} from './article/article-detail.component';
+import {NzTableModule} from 'ng-zorro-antd/table';
 
 
-const COMPONENTS = [LoginComponent, ArticleListComponent];
+const COMPONENTS = [LoginComponent, ArticleListComponent, ArticleDetailComponent];
 
 @NgModule({
-    imports: [
-        NzModalModule,
-        NzButtonModule,
-        FormsModule,
-        NzFormModule,
-        ReactiveFormsModule,
-        NzSelectModule,
-        NzLayoutModule,
-        NzBreadCrumbModule,
-        NzMenuModule,
-        CommonModule,
-        RouterModule,
-        ShowdownModule,
-    ],
+  imports: [
+    NzModalModule,
+    NzButtonModule,
+    FormsModule,
+    NzFormModule,
+    ReactiveFormsModule,
+    NzSelectModule,
+    NzLayoutModule,
+    NzBreadCrumbModule,
+    NzMenuModule,
+    CommonModule,
+    RouterModule,
+    ShowdownModule,
+    NzCardModule,
+    NzTableModule
+  ],
   declarations: [...COMPONENTS],
   exports: [...COMPONENTS]
 })

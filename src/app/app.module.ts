@@ -18,6 +18,7 @@ import {ComponentsModule} from './zhang/component/components.module';
 import {NzFormModule} from 'ng-zorro-antd/form';
 import {AppComponent} from './app.component';
 import {ShowdownModule} from 'ngx-showdown';
+import {NzCardMetaComponent, NzCardModule} from 'ng-zorro-antd/card';
 
 registerLocaleData(en);
 
@@ -34,6 +35,7 @@ registerLocaleData(en);
     HttpClientModule,
     IconsProviderModule,
     NzLayoutModule,
+    NzCardModule,
     NzMenuModule,
     NzFormModule,
     NzBreadCrumbModule,
@@ -42,7 +44,7 @@ registerLocaleData(en);
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    ShowdownModule
+    ShowdownModule,
   ],
   providers: [
     // { provide: NZ_I18N, useValue: en_US },
